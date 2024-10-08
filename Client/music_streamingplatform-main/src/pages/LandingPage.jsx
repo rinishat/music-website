@@ -2,9 +2,6 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 const LandingPage = () => {
   const navigate = useNavigate();
-  const handleGetStarted = () => {
-    navigate('/login');
-  };
   return (
     <div className="min-h-screen bg-gradient-to-b from-purple-900 to-black flex flex-col items-center justify-center px-4">
       <div className="text-center max-w-3xl">
