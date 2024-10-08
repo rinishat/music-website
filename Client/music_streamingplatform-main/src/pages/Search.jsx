@@ -1,6 +1,6 @@
 import { Search as SearchIcon } from 'lucide-react';
 
-const Search = () => {
+const Search = ({ searchQuery, setSearchQuery }) => {
   const genres = [
     'Rock', 'Pop', 'Hip Hop', 'Jazz', 'Classical', 'Electronic',
     'R&B', 'Country', 'Blues', 'Folk', 'Metal', 'Reggae'
@@ -12,6 +12,8 @@ const Search = () => {
         <SearchIcon className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
         <input
           type="text"
+          value={searchQuery} // Bind the value of the input to searchQuery
+          onChange={(e) => setSearchQuery(e.target.value)} // Update searchQuery on input change
           placeholder="What do you want to listen to?"
           className="w-full py-3 pl-12 pr-4 bg-white/10 rounded-full text-white placeholder-gray-400 focus:outline-none focus:bg-white/20"
         />
@@ -24,7 +26,7 @@ const Search = () => {
             key={index}
             className="aspect-square relative overflow-hidden rounded-lg cursor-pointer"
             style={{
-              backgroundColor: `hsl(${index * 30}, 70%, 50%)`,
+              backgroundColor: `hsl(${index * 30}, 70%, 50%)`, // Fix the backgroundColor syntax
             }}
           >
             <span className="absolute inset-4 text-xl font-bold text-white">{genre}</span>
