@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import { getAllSongs, addSong, deleteSong } from '../services/api';
 import { 
@@ -20,6 +19,7 @@ const Library = () => {
   const [currentlyPlaying, setCurrentlyPlaying] = useState(null);
   const [newSong, setNewSong] = useState({ title: '', artist: '', duration: '', audioUrl: '' });
   const [isMuted, setIsMuted] = useState(false);
+  const [searchQuery, setSearchQuery] = useState(''); // New state for search query
   const audioRef = useRef(new Audio());
 
   useEffect(() => {
@@ -100,6 +100,12 @@ const Library = () => {
     }
   };
 
+  // Filter songs based on search query
+  const filteredSongs = songs.filter(song => 
+    song.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    song.artist.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   if (loading) return (
     <div className="flex justify-center items-center h-64">
       <Loader className="animate-spin h-12 w-12 text-purple-500" />
@@ -154,8 +160,19 @@ const Library = () => {
         </button>
       </form>
 
+      {/* Search Input */}
+      <div className="mb-4">
+        <input
+          type="text"
+          placeholder="Search for a song or artist"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className="px-4 py-2 rounded-lg bg-gray-700 text-white outline-none focus:ring-2 focus:ring-purple-500 w-full"
+        />
+      </div>
+
       <div className="bg-gray-800 rounded-lg overflow-hidden">
-        {songs.length === 0 ? (
+        {filteredSongs.length === 0 ? (
           <div className="flex flex-col items-center justify-center h-64 text-gray-400">
             <Music size={48} className="mb-4" />
             <p>No songs in your playlist yet</p>
@@ -171,12 +188,10 @@ const Library = () => {
               </button>
             </div>
             <ul>
-              {songs.map((song, index) => (
+              {filteredSongs.map((song, index) => (
                 <li 
                   key={song._id} 
-                  className={`flex items-center justify-between p-4 ${
-                    index % 2 === 0 ? 'bg-gray-700' : 'bg-gray-750'
-                  } hover:bg-gray-600 transition-colors`}
+                  className={`flex items-center justify-between p-4 ${index % 2 === 0 ? 'bg-gray-700' : 'bg-gray-750'} hover:bg-gray-600 transition-colors`}
                 >
                   <div className="flex items-center flex-1">
                     <button 

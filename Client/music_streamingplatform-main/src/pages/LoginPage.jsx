@@ -48,12 +48,14 @@ const LoginPage = () => {
               required
             />
           </div>
-          <button
-            type="submit"
-            className="px-8 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-700 transition-colors"
-          >
-            Login
-          </button>
+          
+<button
+  type="submit"
+  className="px-8 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-700 transition-colors"
+>
+  User Login
+</button>
+
         </form>
         {loginSuccess && (
           <p className="text-green-500 mt-4">Login Successful!</p>  
