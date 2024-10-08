@@ -27,8 +27,6 @@ function App() {
                     <Route path="/home" element={<Home />} />
                     <Route path="/search" element={<Search />} />
                     <Route path="/library" element={<Library />} />
-                    {/* <Route path="/playlist/:id" element={<Playlist />} />
-              <Route path="/liked-songs" element={<LikedSongs />} /> */}
                   </Routes>
                 </main>
               </div>

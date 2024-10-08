@@ -19,12 +19,6 @@ const LandingPage = () => {
           >
             Get Started
           </button>
-          {/* <button
-            onClick={() => navigate("/admin")}
-            className="px-8 py-3 bg-gray-700 text-white rounded-lg font-semibold hover:bg-gray-800 transition-colors"
-          >
-            Admin Login
-          </button> */}
         </div>
       </div>
     </div>

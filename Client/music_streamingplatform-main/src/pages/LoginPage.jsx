@@ -5,24 +5,20 @@ const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const [loginSuccess, setLoginSuccess] = useState(false); // New state for login success
+  const [loginSuccess, setLoginSuccess] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
-    
-    // Simple authentication check (you can extend it with real backend auth)
     if (email === 'musicverse@gmail.com' && password === '12345') {
-      setLoginSuccess(true);  // Set login success state to true
-      setError('');  // Clear any existing errors
-      
-      // After showing the success message, redirect to home after 2 seconds
+      setLoginSuccess(true);  
+      setError(''); 
       setTimeout(() => {
-        navigate('/home');  // Redirect to the home page
+        navigate('/home');  
       }, 1000);
     } else {
       setError('Invalid email or password');
-      setLoginSuccess(false); // Ensure success message is not shown on failure
+      setLoginSuccess(false);
     }
   };
 
@@ -60,7 +56,7 @@ const LoginPage = () => {
           </button>
         </form>
         {loginSuccess && (
-          <p className="text-green-500 mt-4">Login Successful!</p>  // Display login success message
+          <p className="text-green-500 mt-4">Login Successful!</p>  
         )}
       </div>
     </div>

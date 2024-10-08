@@ -19,19 +19,6 @@ const Home = () => {
           </div>
         ))}
       </div>
-
-      {/* <div className="mb-8">
-        <h3 className="text-2xl font-bold text-white mb-4">Recently Played</h3>
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-          {[...Array(6)].map((_, index) => (
-            <div key={index} className="bg-purple-900/20 p-4 rounded-lg hover:bg-purple-900/30 transition-all cursor-pointer">
-              <div className="w-full aspect-square bg-purple-800 rounded-md mb-4"></div>
-              <h4 className="text-white font-medium truncate">Playlist {index + 1}</h4>
-              <p className="text-gray-400 text-sm truncate">Various Artists</p>
-            </div>
-          ))}
-        </div>
-      </div> */}
     </div>
   );
 };
